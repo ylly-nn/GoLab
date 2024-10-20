@@ -46,6 +46,7 @@ func main() {
 			fmt.Println("\033[2J")
 			fmt.Println(people)
 			name := ""
+			fmt.Print("Введите имя >>> ")
 			fmt.Fscan(os.Stdin, &name)
 			delName(people, name)
 			fmt.Println(people)
@@ -115,19 +116,15 @@ func upperCase(str string) {
 func SumInput() {
 	fmt.Println("Введите несколько чисел, разделённых пробелами:")
 
-	// Создаём новый reader для ввода
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 
-	// Убираем лишние пробелы в начале и конце строки
 	input = strings.TrimSpace(input)
 
-	// Разделяем строку на отдельные части по пробелам
 	numbers := strings.Split(input, " ")
 
 	sum := 0
 
-	// Проходим по всем строкам-числам
 	for _, num := range numbers {
 		// Преобразуем строку в целое число
 		n, err := strconv.Atoi(num)
@@ -136,7 +133,6 @@ func SumInput() {
 			return
 		}
 
-		// Суммируем
 		sum += n
 	}
 
@@ -144,20 +140,17 @@ func SumInput() {
 
 }
 
+// Обратный порядок
 func IntArray() {
 	fmt.Println("Введите несколько целых чисел, разделённых пробелами:")
 
-	// Чтение ввода от пользователя
 	reader := bufio.NewReader(os.Stdin)
 	input, _ := reader.ReadString('\n')
 
-	// Убираем пробелы в начале и конце строки
 	input = strings.TrimSpace(input)
 
-	// Разделяем строку по пробелам
 	strNumbers := strings.Split(input, " ")
 
-	// Создаём срез для хранения целых чисел
 	intArray := make([]int, 0)
 
 	// Преобразуем каждую строку в целое число и добавляем в массив
@@ -170,7 +163,7 @@ func IntArray() {
 		intArray = append(intArray, num)
 	}
 
-	// Вывод массива в обратном порядке
+	//Обратный порядок
 	fmt.Println("Числа в обратном порядке:")
 	for i := len(intArray) - 1; i >= 0; i-- {
 		fmt.Print(intArray[i], " ")
